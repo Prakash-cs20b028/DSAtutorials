@@ -40,7 +40,7 @@ int findDuplicate(int* nums, int numsSize){
         {
             high = mid-1;
         }
-        
+       
     }
     return low;
 }
