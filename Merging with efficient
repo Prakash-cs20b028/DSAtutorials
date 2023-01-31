@@ -1,0 +1,29 @@
+void merge(long long arr1[], long long arr2[], int n, int m) 
+{ 
+    int i = 0,j = 0,k=0;
+    vector<int> v;
+    for(int i = 0;i<n;i++)
+    {
+        v.push_back(arr1[i]);
+    }
+    for(int i = 0;i<m;i++)
+    {
+        v.push_back(arr2[i]);
+    }
+           
+    sort(v.begin(),v.end());
+           
+    int sz = v.size();
+    
+    for(int i = 0;i<n;i++)
+    {
+        
+        arr1[i] = v[i];
+    }
+    for(int i = n,j=0;i<sz;i++,j++)
+    {
+        
+        arr2[j] = v[i];
+    }
+    
+} 
