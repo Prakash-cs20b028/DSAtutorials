@@ -1,0 +1,22 @@
+void insertionSort(int arr[], int n)
+    {
+        for(int i = -1;i<n-1;i++)
+        {
+        int key = arr[i+1];
+        for(int j = 0;j<=i;j++)
+        {
+            
+            if(key < arr[j])
+            {
+                arr[i+1] = arr[j];
+                swap(&arr[j],&key);
+                
+            }
+        }
+        }
+    }
+    
+    
+    //here my theme is that i am assuming first element is always sorted and then i am comparing first element with second elem.
+    and if second element is less than first then i swapped and i am following for rest of the element.
+    
