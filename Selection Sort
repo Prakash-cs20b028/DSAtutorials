@@ -1,0 +1,15 @@
+void SelectionSort(int arr[],int n)
+{
+    for(int i = 0;i<n-1;i++)
+    {
+        int j,k;
+        for(j=i,k=i;j<n;j++)
+        {          
+            if(arr[j]<arr[k])
+            {
+                k = j; 
+            }           
+        }
+        swap(&arr[i],&arr[k]);      
+    }
+}
