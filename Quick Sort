@@ -47,6 +47,25 @@ int partition(int arr[],int l,int h)
     return j;
 }
 
+or 
+
+int partition(int arr[],int l,int h)
+{
+    int pivot = arr[h];
+    int x = l-1;
+    for(int i = l;i<=h;i++)
+    {
+        if(arr[i] < pivot)
+        {
+            x++;
+            swap(&arr[x],&arr[i]);
+            
+        }
+    }
+    x++;
+    swap(&arr[x],&arr[h]);
+    return x;
+}
 
 void QuickSort(int arr[],int l,int h)
 {
