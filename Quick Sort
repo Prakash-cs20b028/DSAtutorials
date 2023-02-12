@@ -20,13 +20,41 @@ int Partition(int arr[],int l,int h)
 
 return key; 
 }
+
+or 
+
+int partition(int arr[],int l,int h)
+{
+    int pivot = arr[l];
+    int i = l+1;int j = h-1;
+    while(i<=j)
+    {
+        while(arr[i] < pivot)
+        {
+            i++;
+        }
+        while(arr[j] > pivot)
+        {
+            j--;
+        }
+        if(i < j)
+        {
+            swap(&arr[i],&arr[j]);
+        }
+    }
+    
+    swap(&arr[l],&arr[j]);
+    return j;
+}
+
+
 void QuickSort(int arr[],int l,int h)
 {
     int j;
     if(l<h)
     {
         j = Partition(arr,l,h);
-        QuickSort(arr,l,j);   //we are just keeping element at correct position by using j.
+        QuickSort(arr,l,j-1);   //we are just keeping element at correct position by using j.
         QuickSort(arr,j+1,h);
     }
 
