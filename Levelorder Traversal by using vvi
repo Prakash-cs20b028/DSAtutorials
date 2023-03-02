@@ -1,0 +1,29 @@
+vector<vector<int>> levelOrder(TreeNode* root) {
+        queue<TreeNode*> q;
+        TreeNode* p = root;
+        vector<vector<int>> vec;
+        q.push(p);
+        if(p == NULL){return vec;}
+        while(!q.empty())
+        {
+            int x = q.size();
+            vector<int> v;
+            while(x--)
+            {
+                p = q.front();
+                q.pop();
+                if(p->left != NULL)
+                {
+                    q.push(p->left);
+                }
+                if(p->right != NULL)
+                {
+                    q.push(p->right);
+                }
+                v.push_back(p->val);
+            }
+            vec.push_back(v);  //every time we need to push our data into vvi.
+        }
+        
+        return vec;
+    }
