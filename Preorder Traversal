@@ -1,0 +1,21 @@
+vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> vec;
+        TreeNode* p = root;
+        stack<TreeNode*> st;
+        while(p!=NULL || !st.empty())
+        {
+            if(p != NULL)
+            {
+                vec.push_back(p->val);
+                st.push(p);
+                p = p->left;
+            }
+            else
+            {
+                p = st.top();
+                st.pop();
+                p = p->right;
+            }
+        }
+        return vec;
+    }
