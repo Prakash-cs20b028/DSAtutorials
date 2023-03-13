@@ -1,0 +1,81 @@
+#include<iostream>
+#include<queue>
+using namespace std;
+struct node
+{
+    int data;
+    node* left;
+    node* right;
+};
+queue<node*>q;
+node* Insert(struct node* root,int key)
+{
+    if(root == NULL)
+    {
+        root = new node();
+        root->data = key;
+        root->left = root->right = NULL;
+    }
+    else
+    {
+        if(root->data < key)
+        {
+            root->right = Insert(root->right,key);
+        }
+        else if(root->data > key)
+        {
+            root->left = Insert(root->left,key);
+        }
+    }
+    return root;
+}
+void Inorder(struct node* root)
+{
+    if(root != NULL)
+    {
+        Inorder(root->left);
+        cout<<root->data<<" ";
+        Inorder(root->right);
+    }
+}
+int MaximumDiameter(struct node* root)
+{
+    int count = 0;
+    q.push(root);
+    int msize = 1;
+    while(!q.empty())
+    {
+        struct node* p = q.front();
+        q.pop();
+        if(p->left != NULL)
+        {
+            q.push(p->left);
+        }
+        if(p->right != NULL)
+        {
+            q.push(p->right);
+        }
+        int qsize = q.size();   //attention please !!!
+        if(qsize > msize)
+        {
+            msize = qsize;
+        }
+    }
+    return msize;
+}
+int main()
+{
+    struct node* root;
+    root = Insert(root,10);
+    Insert(root,15);
+    Insert(root,14);
+    Insert(root,20);
+    Insert(root,5);
+    Insert(root,3);
+    Insert(root,6);
+
+    Inorder(root);
+    printf("\n");
+    cout<<MaximumDiameter(root);
+
+}
