@@ -1,0 +1,30 @@
+vector<int> Traversal(int start,vector<int>adj[],int vis[],vector<int>& dfs)
+    {
+        vis[start] = 1;
+        dfs.push_back(start);
+        for(auto a: adj[start])
+        {
+            if(!vis[a])
+            {
+                Traversal(a,adj,vis,dfs);
+            }
+        }
+        return dfs;
+    }
+  public:
+    // Function to return a list containing the DFS traversal of the graph.
+    vector<int> dfsOfGraph(int n, vector<int> adj[]) {
+        
+        int vis[n] = {0};
+        vector<int>dfs;
+        int start = 0;
+        
+        return Traversal(start,adj,vis,dfs);
+        
+    //return dfs;
+    }
+    
+    main()
+    {
+        //main function.
+    }
