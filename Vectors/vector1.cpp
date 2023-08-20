@@ -3,7 +3,7 @@
 using namespace std;
 int main()
 {
-    vector<int> v;  //We can use int,float,char or any predefined data types as we want.tht type of vector will be created.
+    vector<int> v;  //We can use int,float,char or any predefined data types as we want and that type of vector will be created.
     // we can keep size of vector as well like
     vector<int> v1(5);
     cout<<v1[0]<<" ";   //vector is nearly similar to array.Because it needs selective operators.

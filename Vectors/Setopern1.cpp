@@ -3,7 +3,7 @@
 using namespace std;
 int main()
 {
-    set<int> st = {1,1,2,3,10,20,30,25};   //set neglects duplicate value.
+    set<int> st = {10,1,2,3,10,20,30,25};   //set neglects duplicate value.
 
     st.insert(50);
     int n = st.size();   //similar like vector     int n = v.size();

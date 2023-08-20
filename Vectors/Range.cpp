@@ -23,7 +23,7 @@ int main()
         (*it)+=2;
         cout<<*it<<" ";
     }
-    auto a = '2';  //we can write any datatypes by using auto keyword.
+    auto a = "gfgffg";  //we can write any datatypes by using auto keyword.
     cout<<endl<<a<<endl;
 
 
