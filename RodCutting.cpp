@@ -1,4 +1,70 @@
+
 // Assumed length of the rod as capacity.
+//Recursion approach.
+int fun(int len[],int price[],int n,int cap)
+    {
+        if(n ==0 or cap ==0)
+        {
+            return 0;
+        }
+        else if(len[n-1]<=cap)
+        {
+            return max(price[n-1]+fun(len,price,n,cap-len[n-1]), fun(len,price,n-1,cap));
+        }
+        else
+        {
+            return fun(len,price,n-1,cap);
+        }
+    }
+    int cutRod(int price[], int n) {
+        
+        int len[n];
+        for(int i=0;i<n;i++)
+        {
+            len[i] = i+1;
+        }
+        int cap = n;
+        return fun(len,price,n,cap);
+    }
+
+
+// Memoization Approach
+
+
+int mat[1002][1002];
+    
+    int fun(int len[],int price[],int n,int cap)
+    {
+        if(n ==0 or cap ==0)
+        {
+            return 0;
+        }
+        if(mat[n][cap] != -1)
+        {
+            return mat[n][cap];
+        }
+        else if(len[n-1]<=cap)
+        {
+            return mat[n][cap]=max(price[n-1]+fun(len,price,n,cap-len[n-1]), fun(len,price,n-1,cap));
+        }
+        else
+        {
+            return mat[n][cap]=fun(len,price,n-1,cap);
+        }
+    }
+    int cutRod(int price[], int n) {
+        
+        memset(mat,-1,sizeof(mat));
+        int len[n];
+        for(int i=0;i<n;i++)
+        {
+            len[i] = i+1;
+        }
+        int cap = n;
+        return fun(len,price,n,cap);
+    }
+
+//dp approach
 int fun(int len[],int price[],int n,int cap)
     {
         //initialization
